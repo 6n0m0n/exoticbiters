@@ -20,7 +20,7 @@ data:extend(
       },
 	  {
         type = "fire",
-		    decrease = 50,
+		    percent = 50,
       },
 	  {
         type = "piercing",
