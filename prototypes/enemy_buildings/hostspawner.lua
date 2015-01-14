@@ -5,14 +5,14 @@ data:extend(
     name = "Host Spawner",
     icon = "__base__/graphics/icons/biter-spawner.png",
     flags = {"placeable-player", "placeable-enemy", "not-repairable"},
-    max_health = 1760,
+    max_health = 3000,
     order="s-a",
     subgroup="enemies",
 	resistances = 
     {
       {
         type = "acid",
-        percent = 100
+        percent = 50
       },
 	  {
         type = "physical",
@@ -20,15 +20,15 @@ data:extend(
       },
 	  {
         type = "fire",
-		decrease = -0.5,
+		    decrease = 50,
       },
 	  {
         type = "piercing",
-        percent = 100,
+        percent = 50,
       },
 	  {
         type = "explosion",
-        percent = -1000
+        percent = 50
       }
     },
 		loot =
