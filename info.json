@@ -1,0 +1,10 @@
+
+{
+  "name": "exoticbiters",
+  "version": "0.0.1",
+  "date": "2015-1-13",
+  "title": "Exotic Biters",
+  "author": "6n0m0n, malachite_sprite, and SpaceSheep",
+  "dependencies": ["base"],
+  "description": "For the discerning biterlover"
+}
