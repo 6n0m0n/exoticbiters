@@ -1,0 +1,21 @@
+{ 
+  frame_width = 257,
+  frame_height = 188,
+  frame_count = 8,
+  axially_symmetrical = false,
+  direction_count = 4,
+  shift = {0.359375, -0.125},
+  stripes =
+  {
+   {
+    filename = "__base__/graphics/entity/spawner/spawner-idle-01.png",
+    width_in_frames = 4,
+    height_in_frames = 4,
+   },
+   {
+    filename = "__base__/graphics/entity/spawner/spawner-idle-02.png",
+    width_in_frames = 4,
+    height_in_frames = 4,
+   }
+  }
+}
