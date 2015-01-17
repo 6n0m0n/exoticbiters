@@ -1,3 +1,9 @@
+testbiter_size = 0.5
+testbiter_tint1 = {r=1, g=0.8, b=0, a=0.6}
+testbiter_tint2 = {r=0, g=0, b=0, a=0.85}
+
+--require("prototypes.entity.demo-biter-animation")
+
 data:extend(
 {
   {
@@ -18,16 +24,7 @@ data:extend(
      cooldown = 35,
      ammo_category = "melee",
      ammo_type = make_unit_melee_ammo_type(6),
-     animation =
-     {
-       filename = "__base__/graphics/entity/biter/biter-attack-1.png",
-       width = 139,
-       height = 93,
-       frame_count = 11,
-       direction_count = 16,
-       axially_symmetrical = false,
-       shift = {0.84375, -0.3125}
-     }
+     animation = biterattackanimation(testbiter_size, testbiter_tint1, testbiter_tint2)
    },
    movement_speed = 0.2,
    distance_per_frame = 0.1,
@@ -54,16 +51,6 @@ data:extend(
        volume = 0.7
      }
    },
-   run_animation =
-   {
-     filename = "__base__/graphics/entity/biter/biter-run-1.png",
-     still_frame = 4,
-     width = 86,
-     height = 59,
-     frame_count = 16,
-     direction_count = 16,
-     shift = {0.359375, -0.15625},
-     axially_symmetrical = false
-   }
+   run_animation = biterrunanimation(testbiter_size, testbiter_tint1, testbiter_tint2)
  }
  })

@@ -1,3 +1,6 @@
+--require("prototypes.entity.demo-spawner-animation")
+host_spawner_tint = {r=0.375, g=0, b=0.5625, a=0.6}
+
 data:extend(
 {
 {
@@ -39,7 +42,7 @@ data:extend(
     healing_per_tick = 0.1,
     collision_box = {{-1.2, -1}, {1.2, 1}},
     selection_box = {{-1.2, -1}, {1.2, 1}},
-	shooting_cursor_size = 4,
+    shooting_cursor_size = 4,
     pollution_cooldown =100,
     ---dying_explosion = "new-blood-explosion-huge",
 	dying_sound =
@@ -51,31 +54,13 @@ data:extend(
     },
     max_count_of_owned_units = 5,
     max_friends_around_to_spawn = 40,
-    animations =
-    { layers =
-      {
-        filename = "__base__/graphics/entity/spawner/spawner-idle.png",
-        line_length = 8,
-        width = 166,
-        height = 148,
-        frame_count = 32,
-        axially_symmetrical = false,
-        direction_count = 4,
-        shift = {-0.34375, -0.375},
-
-    },
-
+    animations = 
     {
-      filename = "__base__/graphics/entity/spawner/spawner-idle-mask.png",
-      line_length = 8,
-      width = 166,
-      height = 148,
-      frame_count = 32,
-      axially_symmetrical = false,
-      direction_count = 4,
-      shift = {-0.34375, -0.375},
-  }
-},
+      spawner_idle_animation(0, host_spawner_tint),
+      spawner_idle_animation(1, host_spawner_tint),
+      spawner_idle_animation(2, host_spawner_tint),
+      spawner_idle_animation(3, host_spawner_tint)
+    },
     result_units = (function()
                      local res = {}
 					 res[1] = {"testbiter", {{0, 0.1}}}
