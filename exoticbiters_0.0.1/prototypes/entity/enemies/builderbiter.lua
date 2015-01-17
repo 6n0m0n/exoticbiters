@@ -18,10 +18,9 @@ data:extend(
    sticker_box = {{-1.2, -2.4}, {1.2, 0.5}},
    attack_parameters =
    {
-     range = 15,
+     range = 30,
      cooldown = 35,
      warmup = 10,
-     --ammo_category = "melee",
      animation = biterattackanimation(builderbiter_size, builderbiter_tint1, builderbiter_tint2),
      ammo_type = 
      {

@@ -6,6 +6,7 @@ game.onevent(defines.events.ontriggercreatedentity, function(event)
 		event.entity.destroy()
 		local placepos = game.findnoncollidingposition("small-worm-turret", eventpos, 10, 1)
 		if placepos ~= nil then
+			game.createentity{name = "blood-explosion-huge", position = placepos, game.forces.enemy}
 			game.createentity{name = "small-worm-turret", position = placepos, game.forces.enemy}
 		end
 	--[[if event.entity.name == "small-rally" then
@@ -33,17 +34,19 @@ game.onevent(defines.events.ontriggercreatedentity, function(event)
 	  for _,ent in ipairs(nearby) do
 			if ent.name == "gun-turret" then
 				local turretpos = ent.position
-				ent.destroy()
+				ent.die()
 				local placepos = game.findnoncollidingposition("medium-worm-turret", turretpos, 50, 1)
  				if placepos ~= nil then
+ 					game.createentity{name = "blood-explosion-huge", position = placepos, game.forces.enemy} --too much???
 		    		game.createentity{name = "small-worm-turret", position = placepos, game.forces.enemy}
     				break
     			end
   			elseif ent.type == "assembling-machine" then
   				local assemblerpos = ent.position
-  				ent.destroy()
+  				ent.die()
   				local placepos = game.findnoncollidingposition("biter-spawner", turretpos, 50, 1)
  				if placepos ~= nil then
+ 					game.createentity{name = "blood-explosion-huge", position = placepos, game.forces.enemy}
 		    		game.createentity{name = "biter-spawner", position = placepos, game.forces.enemy}
     				break
     			end
