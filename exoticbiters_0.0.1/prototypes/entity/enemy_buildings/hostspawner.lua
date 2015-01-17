@@ -8,52 +8,39 @@ data:extend(
     name = "host-spawner",
     icon = "__base__/graphics/icons/biter-spawner.png",
     flags = {"placeable-player", "placeable-enemy", "not-repairable"},
-    max_health = 3000,
+    max_health = 300,
     order="b-b-g",
-    subgroup="enemies",
-	resistances = 
+        subgroup="enemies",
+    resistances =
     {
       {
-        type = "acid",
-        percent = 50
-      },
-	  {
         type = "physical",
-        percent = 50,
+        decrease = 2,
       },
-	  {
-        type = "fire",
-		    percent = 50,
-      },
-	  {
+      {
         type = "explosion",
-        percent = 50
+        decrease = 5,
+        percent = 15,
       }
     },
-		loot =
-    {
-      {
-        count_max = 1,
-        count_min = 1,
-        item = "alien-artifact",
-        probability = 0.15
-      },
-    },
-    healing_per_tick = 0.1,
+    healing_per_tick = 0.02,
     collision_box = {{-3.2, -2.2}, {2.2, 2.2}},
     selection_box = {{-3.5, -2.5}, {2.5, 2.5}},
-    shooting_cursor_size = 4,
-    pollution_cooldown =100,
-    ---dying_explosion = "new-blood-explosion-huge",
-	dying_sound =
+    -- in ticks per 1 pu
+    pollution_cooldown = 10,
+    corpse = "biter-spawner-corpse",
+    dying_explosion = "blood-explosion-huge",
+    loot =
     {
       {
-        filename = "__base__/sound/creatures/worm-roar-long-1.ogg",
-        volume = 0.7
+        count_max = 10,
+        count_min = 2,
+        item = "alien-artifact",
+        probability = 1
       }
     },
-    max_count_of_owned_units = 5,
-    max_friends_around_to_spawn = 40,
+    max_count_of_owned_units = 7,
+    max_friends_around_to_spawn = 5,
     animations = 
     {
       spawner_idle_animation(0, host_spawner_tint),
@@ -75,9 +62,9 @@ data:extend(
 					 res[10] = {"testbiter", {{0.9, 0.0},{1, 0.01}}}
                      return res
                    end)(),
-    spawning_cooldown = {900, 160},
+    spawning_cooldown = {360, 150},
     spawning_radius = 10,
-    spawning_spacing = 1,
+    spawning_spacing = 3,
     max_spawn_shift = 0,
     max_richness_for_spawn_shift = 100,
     autoplace =
