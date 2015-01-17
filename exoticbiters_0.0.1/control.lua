@@ -9,8 +9,8 @@ require "defines"
   end
 end--]]
 
-game.onevent(defines.events.onentitydied, function(event)
-	if event.entity.name == "worm-host-biter" then
+--[[game.onevent(defines.events.onentitydied, function(event)
+	--[[if event.entity.name == "worm-host-biter" then
 		local deathpos = event.entity.position
 		nearby = game.findentities{{deathpos.x-10, deathpos.y-10}, {deathpos.x+10, deathpos.y+10}}
 		for _,ent in ipairs(nearby) do
@@ -21,6 +21,24 @@ game.onevent(defines.events.onentitydied, function(event)
 		    		game.createentity{name = "small-worm-turret", position = placepos, game.forces.enemy}
   				end
   			end
+		end
+	end
+	if event.entity.name == "small-worm-placer" then
+		local deathpos = event.entity.position
+		local placepos = game.findnoncollidingposition("small-worm-turret", deathpos, 50, 1)
+		if placepos ~= nil then
+			game.createentity{name = "small-worm-turret", position = placepos, game.forces.enemy}
+		end
+	end
+end)--]]
+
+game.onevent(defines.events.ontriggercreatedentity, function(event)
+	if event.entity.name == "small-worm-placer" then
+		local eventpos = event.entity.position
+		event.entity.destroy()
+		local placepos = game.findnoncollidingposition("small-worm-turret", eventpos, 50, 1)
+		if placepos ~= nil then
+			game.createentity{name = "small-worm-turret", position = placepos, game.forces.enemy}
 		end
 	end
 end)

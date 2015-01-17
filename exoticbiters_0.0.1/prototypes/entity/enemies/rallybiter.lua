@@ -36,7 +36,6 @@ data:extend(
           {
             {
               type = "create-entity",
-              trigger_createdentity = true,
               entity_name = "small-worm-placer"
             },
             {
