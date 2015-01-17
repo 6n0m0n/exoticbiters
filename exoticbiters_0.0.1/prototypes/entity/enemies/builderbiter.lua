@@ -1,12 +1,12 @@
-rallybiter_size = 0.5
-rallybiter_tint1 = {r=1, g=1, b=1, a=0.6}
-rallybiter_tint2 = {r=0, g=0, b=0, a=0.85}
+builderbiter_size = 0.5
+builderbiter_tint1 = {r=0, g=0.9, b=0, a=0.6}
+builderbiter_tint2 = {r=0.9, g=0, b=0, a=0.85}
 
 data:extend(
 {
   {
     type = "unit",
-    name = "rally-biter",
+    name = "builder-biter",
     icon = "__base__/graphics/icons/creeper.png",
    flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air"},
    max_health = 15,
@@ -22,7 +22,7 @@ data:extend(
      cooldown = 35,
      warmup = 10,
      --ammo_category = "melee",
-     animation = biterattackanimation(rallybiter_size, rallybiter_tint1, rallybiter_tint2),
+     animation = biterattackanimation(builderbiter_size, builderbiter_tint1, builderbiter_tint2),
      ammo_type = 
      {
       category = "biological",
@@ -34,11 +34,11 @@ data:extend(
           type = "instant",
           source_effects =
           {
-            --[[{
+            {
               type = "create-entity",
               trigger_createdentity = true,
-              entity_name = "small-rally"
-            },--]]
+              entity_name = "small-base-rally"
+            },
             {
               type = "damage",
               damage = { amount = 30, type = "explosion"}
@@ -73,6 +73,6 @@ data:extend(
        volume = 0.7
      }
    },
-   run_animation = biterrunanimation(rallybiter_size, rallybiter_tint1, rallybiter_tint2)
+   run_animation = biterrunanimation(builderbiter_size, builderbiter_tint1, builderbiter_tint2)
  }
  })

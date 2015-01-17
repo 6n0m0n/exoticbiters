@@ -52,9 +52,9 @@ data:extend(
                      local res = {}
 					 res[1] = {"testbiter", {{0, 0.1}}}
 					 res[2] = {"worm-host-biter", {{0, 0.1}}}
-					 res[3] = {"testbiter", {{0.2, 0.0},{1, 0.08}}}
-					 res[4] = {"testbiter", {{0.3, 0.0},{1, 0.07}}}
-					 res[5] = {"testbiter", {{0.4, 0.0},{1, 0.06}}}
+					 res[3] = {"rally-biter", {{0, 0.1}}}
+					 res[4] = {"builder-biter", {{0, 0.1}}}
+					 res[5] = {"dustbiter", {{0, 0.1}}}
 					 res[6] = {"testbiter", {{0.5, 0.0},{1, 0.05}}}
 					 res[7] = {"testbiter", {{0.6, 0.0},{1, 0.04}}}
 					 res[8] = {"testbiter", {{0.7, 0.0},{1, 0.03}}}
