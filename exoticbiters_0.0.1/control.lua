@@ -1,17 +1,26 @@
 require "defines"
 
-game.onevent(defines.events.onchunkgenerated, function(event)
-	local lefttop = event.area.lefttop
-	local rightbottom = event.area.rightbottom --lefttop.x
-	local entlist = game.findentities{{lefttop.x, lefttop.y}, {rightbottom.x, rightbottom.y}}
-	for i, ent in ipairs(entlist) do
-		if ent.name == "biter-spawner" then
-			local rand = math.random(1)
-			if rand == 1 then
-				local position = ent.position
+--[[function wormhostattack(wormhost)
+  local hostpos = wormhost.position
+  wormhost.destroy()
+  local placepos = game.findnoncollidingposition("small-worm-turret", hostpos, 10, 1)
+  if placepos ~= nil then
+    game.createentity{name = "small-worm-turret", position = placepos, game.forces.enemy}
+  end
+end--]]
+
+game.onevent(defines.events.onentitydied, function(event)
+	if event.entity.name == "worm-host-biter" then
+		local deathpos = event.entity.position
+		nearby = game.findentities{{deathpos.x-10, deathpos.y-10}, {deathpos.x+10, deathpos.y+10}}
+		for _,ent in ipairs(nearby) do
+			if ent.name == "small-worm-placer" then
 				ent.destroy()
-				game.createentity{name = "host-spawner", position = position, game.forces.enemy}
-			end
+				local placepos = game.findnoncollidingposition("small-worm-turret", deathpos, 50, 1)
+ 				if placepos ~= nil then
+		    		game.createentity{name = "small-worm-turret", position = placepos, game.forces.enemy}
+  				end
+  			end
 		end
 	end
 end)
