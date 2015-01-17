@@ -2,7 +2,7 @@ data:extend(
 {
 {
     type = "unit-spawner",
-    name = "Host Spawner",
+    name = "host-spawner",
     icon = "__base__/graphics/icons/biter-spawner.png",
     flags = {"placeable-player", "placeable-enemy", "not-repairable"},
     max_health = 3000,
